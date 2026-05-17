@@ -1,42 +1,71 @@
 import { Link } from 'react-router-dom';
+import { companyInfo } from '../../config/company';
+import { salonContent } from '../../config/salon-content';
+import QRBlock from '../common/QRBlock';
 
 const Footer = () => {
     return (
-        <footer className="bg-luxury-black text-white pt-16 pb-8 border-t border-luxury-gray">
+        <footer className="bg-charcoal-800 text-cream-100 pt-16 pb-8 border-t border-charcoal-700">
             <div className="container mx-auto px-6 lg:px-12">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
 
                     <div>
-                        <h2 className="text-2xl font-serif tracking-widest mb-6">MAKI</h2>
-                        <p className="text-luxury-light/70 text-sm leading-relaxed mb-6 font-light">
+                        <div className="bg-white rounded-xl inline-block px-5 py-4 mb-4 border border-gold-200 shadow-lg">
+                            <img
+                                src="/logos/maki-salon-logo.png"
+                                alt="DETOX SALON MAKI ロゴ"
+                                className="h-20 w-auto"
+                            />
+                        </div>
+                        <p className="text-cream-300 text-xs leading-relaxed mb-6 font-light tracking-wider">
                             極上のハンドケアと最新フェイシャル技術で<br />
                             真の美しさと健康を引き出すデトックスサロン。
                         </p>
                     </div>
 
                     <div>
-                        <h3 className="text-lg font-serif tracking-widest mb-6 border-b border-luxury-gray pb-2 inline-block">CONTACT</h3>
-                        <ul className="space-y-4 text-sm text-luxury-light/80 font-light">
-                            <li>〒433-8122</li>
-                            <li>静岡県浜松市中区上島5-4-48</li>
-                            <li>美容室SOLO 2F</li>
-                            <li className="text-gold-300 pt-2 text-lg">053-472-3683</li>
+                        <h3 className="text-sm font-display tracking-[0.2em] mb-6 border-b border-charcoal-600 pb-2 inline-block text-gold-400">CONTACT</h3>
+                        <ul className="space-y-3 text-xs text-cream-300 font-light tracking-wider">
+                            <li>{companyInfo.address.postalCode}</li>
+                            <li>{companyInfo.address.full}</li>
+                            <li className="text-gold-400 pt-2 text-base">{companyInfo.phone}</li>
                         </ul>
                     </div>
 
                     <div>
-                        <h3 className="text-lg font-serif tracking-widest mb-6 border-b border-luxury-gray pb-2 inline-block">INFORMATION</h3>
-                        <ul className="space-y-3 text-sm text-luxury-light/80 font-light">
-                            <li><Link to="/law" className="hover:text-gold-300 transition-colors">特定商取引法に基づく表記</Link></li>
-                            <li><Link to="/privacy" className="hover:text-gold-300 transition-colors">プライバシーポリシー</Link></li>
-                            <li><Link to="/contact" className="hover:text-gold-300 transition-colors">お問い合わせフォーム</Link></li>
+                        <h3 className="text-sm font-display tracking-[0.2em] mb-6 border-b border-charcoal-600 pb-2 inline-block text-gold-400">INFORMATION</h3>
+                        <ul className="space-y-3 text-xs text-cream-300 font-light tracking-wider">
+                            <li><Link to="/law" className="hover:text-gold-400 transition-colors">特定商取引法に基づく表記</Link></li>
+                            <li><Link to="/privacy" className="hover:text-gold-400 transition-colors">プライバシーポリシー</Link></li>
+                            <li><Link to="/contact" className="hover:text-gold-400 transition-colors">お問い合わせフォーム</Link></li>
+                            <li><Link to="/academy" className="hover:text-gold-300 transition-colors">📚 一人サロン集客講座</Link></li>
                         </ul>
+                    </div>
+
+                    <div>
+                        <h3 className="text-sm font-display tracking-[0.2em] mb-6 border-b border-charcoal-600 pb-2 inline-block text-gold-400">CONNECT</h3>
+                        <div className="flex flex-col gap-4">
+                            <QRBlock
+                                qrImage={salonContent.line.qrImage}
+                                label="公式LINE"
+                                linkUrl={salonContent.line.url}
+                                linkText="友だち追加"
+                                size="sm"
+                            />
+                            <QRBlock
+                                qrImage={salonContent.instagram.qrImage}
+                                label="Instagram"
+                                linkUrl={salonContent.instagram.url}
+                                linkText="フォローする"
+                                size="sm"
+                            />
+                        </div>
                     </div>
 
                 </div>
 
-                <div className="border-t border-luxury-gray/50 pt-8 text-center text-xs text-luxury-light/50 tracking-wider">
-                    <p>&copy; {new Date().getFullYear()} 株式会社 MAKI. All Rights Reserved.</p>
+                <div className="border-t border-charcoal-600/50 pt-8 text-center text-xs text-cream-400 tracking-wider">
+                    <p>&copy; {new Date().getFullYear()} {companyInfo.name}. All Rights Reserved.</p>
                 </div>
             </div>
         </footer>

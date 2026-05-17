@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Menu, X, Search, MessageCircle } from 'lucide-react';
+import { salonContent } from '../../config/salon-content';
 
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const location = useLocation();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -19,74 +21,148 @@ const Header = () => {
         setIsMobileMenuOpen(false);
     }, [location]);
 
-    const navLinks = [
+    const salonNavLinks = [
         { name: 'HOME', path: '/' },
         { name: 'ABOUT', path: '/#about' },
         { name: 'SERVICE', path: '/#service' },
         { name: 'COMPANY', path: '/#company' },
     ];
 
+    const isAcademy = location.pathname.startsWith('/academy');
+
+    const handleAcademyClick = (e: React.MouseEvent) => {
+        e.preventDefault();
+        if (location.pathname === '/academy') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+            navigate('/academy');
+        }
+    };
+
+    /* ─── Hero上（未スクロール）: 透明背景＆白文字 / スクロール後: クリーム背景 ─── */
+    const headerBg = isScrolled
+        ? 'bg-cream-50/95 backdrop-blur-xl shadow-sm border-b border-gold-200/50 py-2.5'
+        : 'bg-charcoal-900/30 backdrop-blur-sm border-b border-transparent py-5';
+
+    const navTextColor = isScrolled ? 'text-charcoal-700' : 'text-white/85';
+    const navHoverColor = isScrolled ? 'hover:text-gold-600' : 'hover:text-gold-300';
+    const menuIconColor = isScrolled ? 'text-charcoal-700' : 'text-white';
+
     return (
-        <header
-            className={`fixed w-full z-50 transition-all duration-500 border-b ${isScrolled
-                ? 'bg-luxury-black/95 backdrop-blur-sm shadow-md border-luxury-gray/30 py-4'
-                : 'bg-transparent border-transparent py-6'
-                }`}
-        >
+        <header className={`fixed w-full z-50 transition-all duration-500 ${headerBg}`}>
             <div className="container mx-auto px-6 lg:px-12 flex justify-between items-center">
-                <Link to="/" className="text-2xl font-serif text-white tracking-widest">
-                    MAKI
+                {/* ── ロゴ: サイズ拡大（h-14 / h-10） ── */}
+                <Link to="/" className="flex items-center">
+                    <div className={`transition-all duration-500 ${isScrolled
+                        ? ''
+                        : 'bg-white rounded-xl px-3 py-2 border border-gold-200 shadow-md'
+                    }`}>
+                        <img
+                            src="/logos/maki-salon-logo.png"
+                            alt="DETOX SALON MAKI ロゴ"
+                            className={`transition-all duration-500 w-auto ${isScrolled
+                                ? 'h-10'
+                                : 'h-14'
+                                }`}
+                        />
+                    </div>
                 </Link>
 
                 {/* Desktop Nav */}
-                <nav className="hidden md:flex space-x-8 items-center">
-                    {navLinks.map((link) => (
+                <nav className="hidden md:flex space-x-5 items-center">
+                    {salonNavLinks.map((link) => (
                         <a
                             key={link.name}
                             href={link.path}
-                            className="text-white hover:text-gold-300 transition-colors text-sm tracking-wider font-light"
+                            className={`${navTextColor} ${navHoverColor} transition-colors text-xs tracking-[0.15em] font-light`}
                         >
                             {link.name}
                         </a>
                     ))}
                     <a
-                        href="/#diagnostic"
-                        className="bg-gold-500 hover:bg-gold-300 text-luxury-black px-6 py-2 rounded-sm transition-colors text-sm font-medium tracking-wider"
+                        href="/academy"
+                        onClick={handleAcademyClick}
+                        className={`text-xs tracking-[0.15em] font-light transition-colors ${isAcademy
+                            ? 'text-gold-400'
+                            : `${navTextColor} ${navHoverColor}`
+                            }`}
                     >
-                        無料診断・ご予約
+                        講座LP
+                    </a>
+
+                    {/* ── 2ボタン ── */}
+                    <a
+                        href="/#diagnostic"
+                        className={`flex items-center gap-1.5 border px-4 py-2 rounded-full transition-all text-xs font-medium tracking-wider ${isScrolled
+                            ? 'border-gold-400 text-gold-700 hover:bg-gold-500 hover:text-white'
+                            : 'border-cream-100/40 text-cream-50 hover:bg-cream-50/10'
+                            }`}
+                    >
+                        <Search size={13} />
+                        無料診断
+                    </a>
+                    <a
+                        href={salonContent.line.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 bg-[#06C755] hover:bg-[#05b34c] text-white px-4 py-2 rounded-full transition-colors text-xs font-medium tracking-wider shadow-sm shadow-[#06C755]/20"
+                    >
+                        <MessageCircle size={13} />
+                        ご予約・LINE
                     </a>
                 </nav>
 
                 {/* Mobile menu button */}
                 <button
-                    className="md:hidden text-white focus:outline-none"
+                    className={`md:hidden ${menuIconColor} focus:outline-none`}
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    aria-label={isMobileMenuOpen ? 'メニューを閉じる' : 'メニューを開く'}
                 >
-                    {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+                    {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
                 </button>
             </div>
 
             {/* Mobile Nav */}
             <div
-                className={`md:hidden absolute top-full left-0 w-full bg-luxury-black border-t border-luxury-gray/30 transition-all duration-300 overflow-hidden ${isMobileMenuOpen ? 'max-h-96 opacity-100 py-4' : 'max-h-0 opacity-0 py-0'
+                className={`md:hidden absolute top-full left-0 w-full bg-cream-50 border-t border-gold-100 transition-all duration-300 overflow-hidden ${isMobileMenuOpen ? 'max-h-[500px] opacity-100 py-4' : 'max-h-0 opacity-0 py-0'
                     }`}
             >
                 <div className="flex flex-col space-y-4 px-6">
-                    {navLinks.map((link) => (
+                    {salonNavLinks.map((link) => (
                         <a
                             key={link.name}
                             href={link.path}
-                            className="text-white hover:text-gold-300 transition-colors text-sm tracking-widest py-2 border-b border-white/10"
+                            className="text-charcoal-700 hover:text-gold-600 transition-colors text-xs tracking-[0.2em] py-2 border-b border-gold-100"
                         >
                             {link.name}
                         </a>
                     ))}
                     <a
-                        href="/#diagnostic"
-                        className="bg-gold-500 text-luxury-black text-center px-6 py-3 mt-4 rounded-sm font-medium tracking-wider"
+                        href="/academy"
+                        onClick={handleAcademyClick}
+                        className="text-charcoal-700 hover:text-gold-600 transition-colors text-xs tracking-[0.2em] py-2 border-b border-gold-100"
                     >
-                        無料診断・ご予約はこちら
+                        📚 一人サロン集客講座
                     </a>
+
+                    <div className="flex flex-col gap-3 mt-4">
+                        <a
+                            href="/#diagnostic"
+                            className="flex items-center justify-center gap-2 border border-gold-400 text-gold-700 px-6 py-3 rounded-full font-medium tracking-wider text-xs"
+                        >
+                            <Search size={14} />
+                            無料診断はこちら
+                        </a>
+                        <a
+                            href={salonContent.line.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-center gap-2 bg-[#06C755] text-white px-6 py-3 rounded-full font-medium tracking-wider text-xs"
+                        >
+                            <MessageCircle size={14} />
+                            ご予約・LINE登録
+                        </a>
+                    </div>
                 </div>
             </div>
         </header>
