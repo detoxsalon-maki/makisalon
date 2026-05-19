@@ -41,8 +41,8 @@ const Header = () => {
 
     /* ─── Hero上（未スクロール）: 透明背景＆白文字 / スクロール後: クリーム背景 ─── */
     const headerBg = isScrolled
-        ? 'bg-cream-50/95 backdrop-blur-xl shadow-sm border-b border-gold-200/50 py-2.5'
-        : 'bg-charcoal-900/30 backdrop-blur-sm border-b border-transparent py-5';
+        ? 'bg-cream-50/95 backdrop-blur-xl shadow-sm border-b border-gold-200/50 py-2'
+        : 'bg-charcoal-900/30 backdrop-blur-sm border-b border-transparent py-2.5 md:py-5';
 
     const navTextColor = isScrolled ? 'text-charcoal-700' : 'text-white/85';
     const navHoverColor = isScrolled ? 'hover:text-gold-600' : 'hover:text-gold-300';
@@ -50,19 +50,19 @@ const Header = () => {
 
     return (
         <header className={`fixed w-full z-50 transition-all duration-500 ${headerBg}`}>
-            <div className="container mx-auto px-6 lg:px-12 flex justify-between items-center">
-                {/* ── ロゴ: サイズ拡大（h-14 / h-10） ── */}
-                <Link to="/" className="flex items-center">
+            <div className="container mx-auto px-4 md:px-6 lg:px-12 flex justify-between items-center">
+                {/* ── ロゴ: モバイル時は縮小して画面幅に収める ── */}
+                <Link to="/" className="flex items-center max-w-[55%] md:max-w-none">
                     <div className={`transition-all duration-500 ${isScrolled
                         ? ''
-                        : 'bg-white rounded-xl px-3 py-2 border border-gold-200 shadow-md'
+                        : 'bg-white rounded-lg md:rounded-xl px-2 py-1 md:px-3 md:py-2 border border-gold-200 shadow-md'
                     }`}>
                         <img
                             src="/logos/maki-salon-logo.png"
                             alt="DETOX SALON MAKI ロゴ"
                             className={`transition-all duration-500 w-auto ${isScrolled
-                                ? 'h-10'
-                                : 'h-14'
+                                ? 'h-7 md:h-10'
+                                : 'h-8 md:h-14'
                                 }`}
                         />
                     </div>

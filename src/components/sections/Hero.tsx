@@ -15,8 +15,7 @@ const Hero = () => {
                     alt="デトックスサロン MAKI 施術ルーム"
                     animate={{ scale: [1.0, 1.08] }}
                     transition={{ duration: 20, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
-                    className="w-full h-full object-cover"
-                    style={{ objectPosition: 'left center' }}
+                    className="w-full h-full object-cover object-center md:object-left"
                 />
             </div>
 
