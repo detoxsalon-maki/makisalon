@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Crown } from 'lucide-react';
 import { salonContent } from '../../config/salon-content';
+import { assetPath } from '../../utils/assetPath';
 
 const Hero = () => {
     const { hero } = salonContent;
@@ -11,7 +12,7 @@ const Hero = () => {
             <div className="absolute inset-0 z-0 hidden md:block">
                 <div className="absolute inset-0 bg-charcoal-900/40 mix-blend-multiply z-10"></div>
                 <motion.img
-                    src={hero.backgroundImage}
+                    src={assetPath(hero.backgroundImage)}
                     alt="デトックスサロン MAKI 施術ルーム"
                     animate={{ scale: [1.0, 1.08] }}
                     transition={{ duration: 20, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
@@ -23,7 +24,7 @@ const Hero = () => {
             <div className="md:hidden relative w-full pt-10">
                 <div className="absolute inset-0 bg-charcoal-900/30 z-10"></div>
                 <motion.img
-                    src={hero.backgroundImageMobile}
+                    src={assetPath(hero.backgroundImageMobile)}
                     alt="デトックスサロン MAKI 施術ルーム"
                     animate={{ scale: [1.0, 1.05] }}
                     transition={{ duration: 20, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}

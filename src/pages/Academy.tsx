@@ -3,6 +3,7 @@ import SectionHeading from '../components/common/SectionHeading';
 import CTAButton from '../components/common/CTAButton';
 import MangaViewer from '../components/common/MangaViewer';
 import { academyContent } from '../config/academy-content';
+import { assetPath } from '../utils/assetPath';
 import { academyMangaPanels } from '../config/manga-academy';
 import { BookOpen, Users, TrendingUp, Sparkles, Target, Zap } from 'lucide-react';
 
@@ -28,7 +29,7 @@ const Academy = () => {
             <section className="hidden md:block relative min-h-screen overflow-hidden">
                 {/* 背景画像 */}
                 <img
-                    src="/images/header_academy_PC.png"
+                    src={assetPath('/images/header_academy_PC.png')}
                     alt="MAKI ACADEMY ラグジュアリーサロン内観"
                     className="absolute inset-0 w-full h-full object-cover object-center"
                 />
@@ -117,7 +118,7 @@ const Academy = () => {
                 <div className="relative w-full min-h-screen">
                     {/* 背景画像: フルビューポート */}
                     <img
-                        src="/images/header_academy_mobile2.png"
+                        src={assetPath('/images/header_academy_mobile2.png')}
                         alt="MAKI ACADEMY ラグジュアリーサロン内観"
                         className="absolute inset-0 w-full h-full object-cover object-top"
                     />

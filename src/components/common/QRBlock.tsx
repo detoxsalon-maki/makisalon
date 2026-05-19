@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { assetPath } from '../../utils/assetPath';
 
 interface QRBlockProps {
   qrImage: string;
@@ -22,7 +23,7 @@ const QRBlock = ({ qrImage, label, linkUrl, linkText = 'タップして開く', 
       <a href={linkUrl} target="_blank" rel="noopener noreferrer" className="group">
         <div className={`${sizeMap[size]} bg-white rounded-lg p-2 shadow-lg border border-gold-200/50 group-hover:shadow-gold-500/20 transition-shadow duration-300`}>
           <img
-            src={qrImage}
+            src={assetPath(qrImage)}
             alt={`${label} QRコード`}
             className="w-full h-full object-contain"
           />

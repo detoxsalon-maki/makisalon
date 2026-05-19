@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { companyInfo } from '../../config/company';
 import { salonContent } from '../../config/salon-content';
+import { assetPath } from '../../utils/assetPath';
 import QRBlock from '../common/QRBlock';
 
 const Footer = () => {
@@ -12,7 +13,7 @@ const Footer = () => {
                     <div>
                         <div className="bg-white rounded-xl inline-block px-5 py-4 mb-4 border border-gold-200 shadow-lg">
                             <img
-                                src="/logos/maki-salon-logo.png"
+                                src={assetPath('/logos/maki-salon-logo.png')}
                                 alt="DETOX SALON MAKI ロゴ"
                                 className="h-20 w-auto"
                             />

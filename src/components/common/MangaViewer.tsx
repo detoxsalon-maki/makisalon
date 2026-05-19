@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import type { MangaPanel } from '../../config/manga-salon';
+import { assetPath } from '../../utils/assetPath';
 
 interface MangaViewerProps {
   panels: MangaPanel[];
@@ -65,7 +66,7 @@ const MangaViewer = ({
               {/* 画像エリア */}
               <div className={`${imageAspect} relative bg-cream-100`}>
                 <img
-                  src={panel.imagePath}
+                  src={assetPath(panel.imagePath)}
                   alt={panel.altText}
                   className="w-full h-full object-contain"
                   onError={(e) => {

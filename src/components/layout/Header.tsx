@@ -2,12 +2,16 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, Search, MessageCircle } from 'lucide-react';
 import { salonContent } from '../../config/salon-content';
+import { assetPath } from '../../utils/assetPath';
 
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
+
+    // GitHub Pages対応: ベースパスを動的に取得
+    const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
     useEffect(() => {
         const handleScroll = () => {
@@ -22,10 +26,10 @@ const Header = () => {
     }, [location]);
 
     const salonNavLinks = [
-        { name: 'HOME', path: '/' },
-        { name: 'ABOUT', path: '/#about' },
-        { name: 'SERVICE', path: '/#service' },
-        { name: 'COMPANY', path: '/#company' },
+        { name: 'HOME', path: `${base}/` },
+        { name: 'ABOUT', path: `${base}/#about` },
+        { name: 'SERVICE', path: `${base}/#service` },
+        { name: 'COMPANY', path: `${base}/#company` },
     ];
 
     const isAcademy = location.pathname.startsWith('/academy');
@@ -58,7 +62,7 @@ const Header = () => {
                         : 'bg-white rounded-md md:rounded-xl px-1.5 py-0.5 md:px-3 md:py-2 border border-gold-200 shadow-md'
                     }`}>
                         <img
-                            src="/logos/maki-salon-logo.png"
+                            src={assetPath('/logos/maki-salon-logo.png')}
                             alt="DETOX SALON MAKI ロゴ"
                             className={`transition-all duration-500 w-auto ${isScrolled
                                 ? 'h-5 md:h-10'
@@ -80,7 +84,7 @@ const Header = () => {
                         </a>
                     ))}
                     <a
-                        href="/academy"
+                        href={`${base}/academy`}
                         onClick={handleAcademyClick}
                         className={`text-xs tracking-[0.15em] font-light transition-colors ${isAcademy
                             ? 'text-gold-400'
@@ -92,7 +96,7 @@ const Header = () => {
 
                     {/* ── 2ボタン ── */}
                     <a
-                        href="/#diagnostic"
+                        href={`${base}/#diagnostic`}
                         className={`flex items-center gap-1.5 border px-4 py-2 rounded-full transition-all text-xs font-medium tracking-wider ${isScrolled
                             ? 'border-gold-400 text-gold-700 hover:bg-gold-500 hover:text-white'
                             : 'border-cream-100/40 text-cream-50 hover:bg-cream-50/10'
@@ -138,7 +142,7 @@ const Header = () => {
                         </a>
                     ))}
                     <a
-                        href="/academy"
+                        href={`${base}/academy`}
                         onClick={handleAcademyClick}
                         className="text-charcoal-700 hover:text-gold-600 transition-colors text-xs tracking-[0.2em] py-2 border-b border-gold-100"
                     >
@@ -147,7 +151,7 @@ const Header = () => {
 
                     <div className="flex flex-col gap-3 mt-4">
                         <a
-                            href="/#diagnostic"
+                            href={`${base}/#diagnostic`}
                             className="flex items-center justify-center gap-2 border border-gold-400 text-gold-700 px-6 py-3 rounded-full font-medium tracking-wider text-xs"
                         >
                             <Search size={14} />
