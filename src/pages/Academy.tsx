@@ -77,24 +77,25 @@ const Academy = () => {
                         className="absolute inset-0 w-full h-full object-cover object-top"
                     />
 
-                    {/* ダークグラデーション: 上部は画像鮮明、下部はテキスト用 */}
+                    {/* ダークグラデーション: 上部ダーク → 下部クリア（画像下部は鮮明） */}
                     <div className="absolute inset-0 z-[1]" style={{
-                        background: 'linear-gradient(to bottom, rgba(15,12,10,0) 0%, rgba(15,12,10,0) 25%, rgba(15,12,10,0.25) 40%, rgba(15,12,10,0.65) 55%, rgba(15,12,10,0.85) 70%, rgba(15,12,10,0.95) 85%, rgba(15,12,10,1) 100%)'
+                        background: 'linear-gradient(to bottom, rgba(15,12,10,0.88) 0%, rgba(15,12,10,0.80) 20%, rgba(15,12,10,0.55) 40%, rgba(15,12,10,0.25) 55%, rgba(15,12,10,0.08) 70%, rgba(15,12,10,0) 85%, rgba(15,12,10,0) 100%)'
                     }} />
 
-                    {/* テキスト: 下部に大きく配置 */}
-                    <div className="relative z-[2] flex flex-col justify-end min-h-screen px-6 pb-10 pt-20">
+                    {/* テキスト: 最上段・水平中央配置 */}
+                    <div className="relative z-[2] flex flex-col items-center min-h-screen px-6 pt-[72px]">
                         <motion.div
                             initial={{ opacity: 0, y: 40 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1.2 }}
+                            className="text-center"
                         >
-                            <h1 className="text-[34px] font-serif font-bold text-white leading-[1.45] tracking-[0.03em] mb-1">
+                            <h1 className="text-[30px] font-serif font-bold text-white leading-[1.45] tracking-[0.03em] mb-1" style={{ textShadow: '0 3px 16px rgba(0,0,0,0.5)' }}>
                                 あなたの技術を<br />
-                                <span className="text-gold-400 font-black">「極上のブランド」</span>へ。
+                                <span className="text-gold-400 font-black">「極上のブランド」へ</span>
                             </h1>
-                            <div className="w-[60px] h-[2px] bg-gradient-to-r from-gold-600 via-gold-400 to-gold-600 my-5" />
-                            <p className="text-base text-white/88 leading-[1.85] tracking-[0.04em] mb-7">
+                            <div className="w-[60px] h-[2px] bg-gradient-to-r from-gold-600 via-gold-400 to-gold-600 mx-auto my-5" />
+                            <p className="text-base text-white/90 leading-[1.85] tracking-[0.04em] mb-8" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.4)' }}>
                                 月商<span className="text-gold-400 font-bold text-lg">270万円</span>を達成した<br />
                                 現役サロンオーナーが、<br />
                                 月商<span className="text-gold-400 font-bold text-lg">100万円</span>の集客メソッドを伝授。
@@ -105,6 +106,7 @@ const Academy = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1, delay: 0.8 }}
+                            className="w-full"
                         >
                             <a
                                 href={hero.ctaLink}
