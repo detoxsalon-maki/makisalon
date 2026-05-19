@@ -34,7 +34,7 @@ const Hero = () => {
             </div>
 
             {/* ── モバイル: 画像の下のダークエリア背景（md未満で表示） ── */}
-            <div className="md:hidden absolute inset-0 z-0 bg-gradient-to-b from-charcoal-800 to-charcoal-900"></div>
+            <div className="md:hidden absolute inset-0 -z-10 bg-gradient-to-b from-charcoal-800 to-charcoal-900"></div>
 
             {/* ── 装飾: ゴールド＋アイスブルー グロー（PC のみ） ── */}
             <div className="hidden md:block absolute inset-0 z-[2] pointer-events-none">
