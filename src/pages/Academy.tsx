@@ -112,7 +112,7 @@ const Academy = () => {
                 </div>
             </section>
 
-            {/* ─── Hero（モバイル: md未満）── 集客特化型フルインパクト ─── */}
+            {/* ─── Hero（モバイル: md未満）── 信頼感重視・上品レイアウト ─── */}
             <section className="md:hidden overflow-hidden">
                 <div className="relative w-full min-h-screen">
                     {/* 背景画像: フルビューポート */}
@@ -122,40 +122,80 @@ const Academy = () => {
                         className="absolute inset-0 w-full h-full object-cover object-top"
                     />
 
-                    {/* ダークグラデーション: 上部ダーク → 下部クリア（画像下部は鮮明） */}
+                    {/* クリームオーバーレイ（PC版と統一：黒テキスト視認性確保） */}
                     <div className="absolute inset-0 z-[1]" style={{
-                        background: 'linear-gradient(to bottom, rgba(15,12,10,0.88) 0%, rgba(15,12,10,0.80) 20%, rgba(15,12,10,0.55) 40%, rgba(15,12,10,0.25) 55%, rgba(15,12,10,0.08) 70%, rgba(15,12,10,0) 85%, rgba(15,12,10,0) 100%)'
+                        background: 'linear-gradient(to bottom, rgba(253,252,250,0.82) 0%, rgba(253,252,250,0.65) 35%, rgba(253,252,250,0.25) 65%, rgba(253,252,250,0) 100%)'
                     }} />
 
-                    {/* テキスト: 最上段・水平中央配置 */}
-                    <div className="relative z-[2] flex flex-col items-center min-h-screen px-6 pt-[72px]">
-                        <motion.div
-                            initial={{ opacity: 0, y: 40 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 1.2 }}
-                            className="text-center"
+                    {/* テキスト: 信頼感重視の上品な階層構造（PC版と統一） */}
+                    <div className="relative z-[2] flex flex-col items-center min-h-screen px-6 pt-[80px]">
+                        {/* ① ラベルバッジ */}
+                        <motion.span
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.8, delay: 0.1 }}
+                            className="inline-block text-[11px] font-sans font-medium tracking-[0.24em] text-gold-600 border border-gold-500 rounded-sm px-[18px] py-1 mb-5"
                         >
-                            <h1 className="text-[30px] font-serif font-bold text-white leading-[1.45] tracking-[0.03em] mb-1" style={{ textShadow: '0 3px 16px rgba(0,0,0,0.5)' }}>
-                                あなたの技術を<br />
-                                <span className="text-gold-400 font-black">「極上のブランド」へ</span>
-                            </h1>
-                            <div className="w-[60px] h-[2px] bg-gradient-to-r from-gold-600 via-gold-400 to-gold-600 mx-auto my-5" />
-                            <p className="text-base text-white/90 leading-[1.85] tracking-[0.04em] mb-8" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.4)' }}>
-                                月商<span className="text-gold-400 font-bold text-lg">270万円</span>を達成した<br />
-                                現役サロンオーナーが、<br />
-                                月商<span className="text-gold-400 font-bold text-lg">100万円</span>の集客メソッドを伝授。
-                            </p>
-                        </motion.div>
+                            一人サロン特化型
+                        </motion.span>
 
+                        {/* ② メインコピー（最大） */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 1, delay: 0.8 }}
+                            transition={{ duration: 1, delay: 0.25 }}
+                            className="text-center"
+                        >
+                            <h1 className="text-[32px] font-serif font-semibold text-charcoal-800 leading-[1.45] tracking-[0.04em]" style={{ textShadow: '0 1px 6px rgba(255,255,255,0.7)' }}>
+                                あなたの技術を<br />
+                                <span className="text-gold-700 font-bold">「極上のブランド」</span>へ
+                            </h1>
+                        </motion.div>
+
+                        {/* divider */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.8, delay: 0.5 }}
+                            className="w-[50px] h-[1.5px] mx-auto my-[22px]"
+                            style={{ background: 'linear-gradient(to right, transparent, #B8956A, transparent)' }}
+                        />
+
+                        {/* ③ 講座名サブヘッド */}
+                        <motion.p
+                            initial={{ opacity: 0, y: 15 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.9, delay: 0.6 }}
+                            className="text-[18px] font-serif font-medium text-charcoal-700 leading-[1.7] tracking-[0.08em] mb-[14px] text-center"
+                            style={{ textShadow: '0 1px 4px rgba(255,255,255,0.7)' }}
+                        >
+                            月商<span className="text-charcoal-800 font-bold">100万円</span>を達成する集客講座
+                        </motion.p>
+
+                        {/* ④ 実績コピー */}
+                        <motion.p
+                            initial={{ opacity: 0, y: 15 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.9, delay: 0.75 }}
+                            className="text-[13px] text-charcoal-600 leading-[2] tracking-[0.04em] mb-8 text-center"
+                            style={{ textShadow: '0 1px 3px rgba(255,255,255,0.7)' }}
+                        >
+                            23歳で月商<span className="text-gold-700 font-semibold text-[14px]">270万円</span>を達成した<br />
+                            現役サロンオーナーが、<br />
+                            月商<span className="text-gold-700 font-semibold text-[14px]">100万円</span>の集客メソッドを伝授
+                        </motion.p>
+
+                        {/* CTA */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.9, delay: 0.9 }}
                             className="w-full"
                         >
                             <a
                                 href={hero.ctaLink}
-                                className="flex items-center justify-center gap-2 w-full py-[18px] text-base font-serif font-bold tracking-[0.14em] text-white bg-gradient-to-r from-gold-600 via-gold-500 to-gold-600 rounded-full shadow-xl shadow-gold-700/30 animate-pulse-glow"
+                                className="flex items-center justify-center gap-2 w-full py-[16px] text-[15px] font-serif font-bold tracking-[0.14em] rounded-full shadow-lg animate-pulse-glow"
+                                style={{ background: 'linear-gradient(135deg, #8B6914, #A07C4E)', boxShadow: '0 6px 24px rgba(140,105,20,0.35)', color: '#FFFEF8', textShadow: '0 1px 3px rgba(100,70,10,0.4)' }}
                             >
                                 <span>✨ {hero.ctaText}</span>
                                 <span className="text-lg">→</span>
