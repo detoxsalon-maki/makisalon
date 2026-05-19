@@ -12,11 +12,11 @@ import { BookOpen, Users, TrendingUp, Sparkles, Target, Zap } from 'lucide-react
  * カリキュラム後 = 解決策(13-17)  /  CTA内 = 結び(18-20)
  */
 const mangaSegments = {
-    challenge:  academyMangaPanels.filter((p) => p.scene === '課題'),      // 1-4
+    challenge: academyMangaPanels.filter((p) => p.scene === '課題'),      // 1-4
     intervention: academyMangaPanels.filter((p) => p.scene === '介入'),    // 5-8
-    proof:      academyMangaPanels.filter((p) => p.scene === '実績提示'),  // 9-12
-    solution:   academyMangaPanels.filter((p) => p.scene === '解決策'),    // 13-17
-    closing:    academyMangaPanels.filter((p) => p.scene === '結び'),      // 18-20
+    proof: academyMangaPanels.filter((p) => p.scene === '実績提示'),  // 9-12
+    solution: academyMangaPanels.filter((p) => p.scene === '解決策'),    // 13-17
+    closing: academyMangaPanels.filter((p) => p.scene === '結び'),      // 18-20
 };
 
 const Academy = () => {
@@ -24,7 +24,7 @@ const Academy = () => {
 
     return (
         <div className="bg-base-white min-h-screen text-charcoal-800">
-            {/* ─── Hero（PC: md以上）── 集客特化型 ─── */}
+            {/* ─── Hero（PC: md以上）── 信頼感重視・上品レイアウト ─── */}
             <section className="hidden md:block relative min-h-screen overflow-hidden">
                 {/* 背景画像 */}
                 <img
@@ -33,35 +33,80 @@ const Academy = () => {
                     className="absolute inset-0 w-full h-full object-cover object-center"
                 />
 
-                {/* テキスト: 最上段・水平中央（黒テキストで視認性最大化） */}
-                <div className="relative z-[2] flex flex-col items-center text-center min-h-screen pt-[140px] px-10 max-w-[900px] mx-auto">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1 }}
-                    >
-                        <h1 className="text-[60px] font-serif font-bold text-charcoal-800 leading-[1.4] tracking-[0.05em] mb-2">
-                            あなたの技術を<br />
-                            <span className="text-gold-700 font-black">「極上のブランド」へ</span>
-                        </h1>
-                        <div className="w-[80px] h-[2px] bg-gradient-to-r from-gold-700 via-gold-500 to-gold-700 mx-auto my-7" />
-                        <p className="text-xl text-charcoal-700 leading-[2] tracking-[0.06em] mb-9">
-                            23歳で月商<span className="text-gold-700 font-bold text-[22px]">270万円</span>を達成した現役サロンオーナーが、<br />
-                            月商<span className="text-gold-700 font-bold text-[22px]">100万円</span>を達成する集客メソッドを伝授
-                        </p>
-                    </motion.div>
+                {/* 明るいクリームオーバーレイ（黒テキスト視認性確保） */}
+                <div className="absolute inset-0 z-[1]" style={{
+                    background: 'linear-gradient(to bottom, rgba(253,252,250,0.78) 0%, rgba(253,252,250,0.60) 40%, rgba(253,252,250,0.20) 70%, rgba(253,252,250,0) 100%)'
+                }} />
 
+                {/* テキスト: 信頼感重視の上品な階層構造 */}
+                <div className="relative z-[2] flex flex-col items-center text-center min-h-screen pt-[160px] px-10 max-w-[960px] mx-auto">
+                    {/* ① ラベルバッジ */}
+                    <motion.span
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.8, delay: 0.1 }}
+                        className="inline-block text-[13px] font-sans font-medium tracking-[0.28em] text-gold-600 border border-gold-500 rounded-sm px-[22px] py-1.5 mb-7"
+                    >
+                        一人サロン特化型
+                    </motion.span>
+
+                    {/* ② メインコピー（最大） */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, delay: 0.8 }}
+                        transition={{ duration: 1, delay: 0.25 }}
+                    >
+                        <h1 className="text-[52px] font-serif font-semibold text-charcoal-800 leading-[1.45] tracking-[0.06em]" style={{ textShadow: '0 1px 6px rgba(255,255,255,0.7)' }}>
+                            あなたの技術を<br />
+                            <span className="text-gold-700 font-bold">「極上のブランド」</span>へ
+                        </h1>
+                    </motion.div>
+
+                    {/* divider */}
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.8, delay: 0.5 }}
+                        className="w-[60px] h-[1.5px] mx-auto my-[30px]"
+                        style={{ background: 'linear-gradient(to right, transparent, #B8956A, transparent)' }}
+                    />
+
+                    {/* ③ 講座名サブヘッド */}
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.9, delay: 0.6 }}
+                        className="text-[26px] font-serif font-medium text-charcoal-700 leading-[1.7] tracking-[0.10em] mb-[18px]"
+                        style={{ textShadow: '0 1px 4px rgba(255,255,255,0.7)' }}
+                    >
+                        月商<span className="text-charcoal-800 font-bold">100万円</span>を達成する集客講座
+                    </motion.p>
+
+                    {/* ④ 実績コピー */}
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.9, delay: 0.75 }}
+                        className="text-[15px] text-charcoal-600 leading-[2] tracking-[0.05em] mb-11"
+                        style={{ textShadow: '0 1px 3px rgba(255,255,255,0.7)' }}
+                    >
+                        23歳で月商<span className="text-gold-700 font-semibold text-[16px]">270万円</span>を達成した現役サロンオーナーが、<br />
+                        月商<span className="text-gold-700 font-semibold text-[16px]">100万円</span>を達成する集客メソッドを伝授
+                    </motion.p>
+
+                    {/* CTA */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.9, delay: 0.9 }}
                     >
                         <a
                             href={hero.ctaLink}
-                            className="inline-flex items-center justify-center gap-2.5 px-16 py-5 text-lg font-serif font-bold tracking-[0.14em] text-white bg-gradient-to-r from-gold-600 via-gold-500 to-gold-600 rounded-full shadow-xl shadow-gold-700/30 animate-pulse-glow"
+                            className="inline-flex items-center justify-center gap-2.5 px-14 py-[18px] text-[16px] font-serif font-semibold tracking-[0.14em] text-white rounded-full shadow-lg animate-pulse-glow transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.02]"
+                            style={{ background: 'linear-gradient(135deg, #A07C4E, #B8956A)', boxShadow: '0 6px 24px rgba(184,149,106,0.30)' }}
                         >
                             <span>✨ {hero.ctaText}</span>
-                            <span className="text-xl">→</span>
+                            <span className="text-lg">→</span>
                         </a>
                     </motion.div>
                 </div>
