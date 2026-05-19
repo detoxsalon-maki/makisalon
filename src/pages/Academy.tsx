@@ -68,45 +68,38 @@ const Academy = () => {
             </section>
 
             {/* ─── Hero（モバイル: md未満） ─── */}
-            <section className="md:hidden flex flex-col overflow-hidden">
-                {/* 画像: header_academy_mobile2.png を全体表示（オーバーレイなし） */}
+            <section className="md:hidden overflow-hidden">
                 <div className="relative w-full pt-10">
+                    {/* 画像: header_academy_mobile2.png を全体表示（オーバーレイなし） */}
                     <img
                         src="/images/header_academy_mobile2.png"
                         alt="MAKI ACADEMY ラグジュアリーサロン内観"
-                        className="w-full h-auto"
+                        className="w-full h-auto block"
                     />
-                </div>
 
-                {/* テキスト: クリーム背景上に黒字で配置 */}
-                <div className="bg-cream-50 px-6 py-10 text-center">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1 }}
-                    >
-                        <h1 className="text-2xl font-serif text-charcoal-800 mb-6 tracking-[0.04em] leading-tight whitespace-pre-line">
-                            {`あなたの技術を\n「極上のブランド」へ。`}
-                        </h1>
-                        <div className="w-20 h-[2px] bg-gradient-to-r from-gold-500 via-gold-400 to-gold-500 mx-auto my-6"></div>
-                        <p className="text-sm text-charcoal-600 font-light tracking-wider max-w-xs mx-auto leading-relaxed whitespace-pre-line">
-                            {`23歳で月商270万円を達成した現役サロンオーナーが、\n月商100万円を達成する集客メソッドを伝授。`}
-                        </p>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, delay: 0.8 }}
-                        className="mt-8"
-                    >
-                        <a
-                            href={hero.ctaLink}
-                            className="inline-flex items-center justify-center px-8 py-3.5 text-sm font-serif tracking-[0.12em] bg-gold-600 text-cream-50 rounded-full hover:bg-gold-500 transition-colors duration-300 shadow-lg shadow-gold-700/20"
+                    {/* テキスト: 画像上に半透明白パネルで配置 */}
+                    <div className="absolute inset-0 flex flex-col justify-end items-center px-5 pb-6">
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1 }}
+                            className="bg-white/80 backdrop-blur-sm rounded-2xl px-6 py-8 text-center w-full max-w-[340px] shadow-lg"
                         >
-                            {hero.ctaText}
-                        </a>
-                    </motion.div>
+                            <h1 className="text-2xl font-serif text-charcoal-800 mb-4 tracking-[0.04em] leading-tight whitespace-pre-line">
+                                {`あなたの技術を\n「極上のブランド」へ。`}
+                            </h1>
+                            <div className="w-16 h-[2px] bg-gradient-to-r from-gold-500 via-gold-400 to-gold-500 mx-auto my-4"></div>
+                            <p className="text-[13px] text-charcoal-600 font-light tracking-wider max-w-[280px] mx-auto leading-relaxed whitespace-pre-line mb-6">
+                                {`23歳で月商270万円を達成した現役サロンオーナーが、\n月商100万円を達成する集客メソッドを伝授。`}
+                            </p>
+                            <a
+                                href={hero.ctaLink}
+                                className="inline-flex items-center justify-center px-7 py-3 text-sm font-serif tracking-[0.12em] bg-gold-600 text-cream-50 rounded-full hover:bg-gold-500 transition-colors duration-300 shadow-md shadow-gold-700/20"
+                            >
+                                {hero.ctaText}
+                            </a>
+                        </motion.div>
+                    </div>
                 </div>
             </section>
 
