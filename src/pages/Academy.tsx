@@ -24,35 +24,35 @@ const Academy = () => {
 
     return (
         <div className="bg-base-white min-h-screen text-charcoal-800">
-            {/* ─── Hero（PC: md以上） ─── */}
-            <section className="hidden md:flex relative min-h-screen items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-charcoal-900/70 via-charcoal-800/50 to-charcoal-900/60 z-10"></div>
-                <div className="absolute inset-0">
-                    <div className="w-full h-full bg-[url('/images/academy-hero-composite.jpg')] bg-cover bg-center"></div>
-                </div>
+            {/* ─── Hero（PC: md以上）── 集客特化型 ─── */}
+            <section className="hidden md:block relative min-h-screen overflow-hidden">
+                {/* 背景画像 */}
+                <img
+                    src="/images/header_academy_PC.png"
+                    alt="MAKI ACADEMY ラグジュアリーサロン内観"
+                    className="absolute inset-0 w-full h-full object-cover object-center"
+                />
 
-                <div className="relative z-20 text-center px-6 max-w-4xl mx-auto pt-24">
+                {/* ダークグラデーション: 上部ダーク → 下部クリア */}
+                <div className="absolute inset-0 z-[1]" style={{
+                    background: 'linear-gradient(to bottom, rgba(15,12,10,0.85) 0%, rgba(15,12,10,0.75) 20%, rgba(15,12,10,0.50) 40%, rgba(15,12,10,0.25) 55%, rgba(15,12,10,0.08) 70%, rgba(15,12,10,0) 85%, rgba(15,12,10,0) 100%)'
+                }} />
+
+                {/* テキスト: 最上段・水平中央 */}
+                <div className="relative z-[2] flex flex-col items-center text-center min-h-screen pt-[140px] px-10 max-w-[900px] mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1 }}
                     >
-                        <div className="bg-white rounded-2xl inline-block px-6 py-4 mb-4 border border-gold-200 shadow-lg">
-                            <img
-                                src="/logos/maki-salon-logo.png"
-                                alt="DETOX SALON MAKI ロゴ"
-                                className="h-36 w-auto"
-                            />
-                        </div>
-                        <span className="inline-block bg-cream-100 border border-gold-300 text-gold-700 text-xs tracking-[0.3em] px-4 py-2 rounded-full mb-8">
-                            MAKI ACADEMY
-                        </span>
-                        <h1 className="text-5xl lg:text-6xl font-serif text-white mb-8 tracking-[0.15em] leading-tight whitespace-pre-line drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">
-                            {hero.catchcopy}
+                        <h1 className="text-[60px] font-serif font-bold text-white leading-[1.4] tracking-[0.05em] mb-2" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>
+                            あなたの技術を<br />
+                            <span className="text-gold-400 font-black">「極上のブランド」へ</span>
                         </h1>
-                        <div className="w-24 h-[2px] bg-gradient-to-r from-gold-500 via-ice-400 to-gold-500 mx-auto my-8"></div>
-                        <p className="text-lg text-white/90 font-light tracking-widest max-w-2xl mx-auto leading-loose whitespace-pre-line drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">
-                            {hero.subcopy}
+                        <div className="w-[80px] h-[2px] bg-gradient-to-r from-gold-600 via-gold-400 to-gold-600 mx-auto my-7" />
+                        <p className="text-xl text-white/90 leading-[2] tracking-[0.06em] mb-9" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.4)' }}>
+                            23歳で月商<span className="text-gold-400 font-bold text-[22px]">270万円</span>を達成した現役サロンオーナーが、<br />
+                            月商<span className="text-gold-400 font-bold text-[22px]">100万円</span>を達成する集客メソッドを伝授
                         </p>
                     </motion.div>
 
@@ -60,9 +60,14 @@ const Academy = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, delay: 0.8 }}
-                        className="mt-12"
                     >
-                        <CTAButton href={hero.ctaLink} text={hero.ctaText} variant="outline" />
+                        <a
+                            href={hero.ctaLink}
+                            className="inline-flex items-center justify-center gap-2.5 px-16 py-5 text-lg font-serif font-bold tracking-[0.14em] text-white bg-gradient-to-r from-gold-600 via-gold-500 to-gold-600 rounded-full shadow-xl shadow-gold-700/30 animate-pulse-glow"
+                        >
+                            <span>✨ {hero.ctaText}</span>
+                            <span className="text-xl">→</span>
+                        </a>
                     </motion.div>
                 </div>
             </section>
