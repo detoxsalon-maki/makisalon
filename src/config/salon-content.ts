@@ -17,11 +17,17 @@ export const salonContent = {
   hero: {
     catchcopy: '巡りを整え、\nため込まないカラダへ',
     subcopy:
-      'ボディもフェイスも、私に合わせて整える\n浜松で17年、延べ10,000人以上が実感した\nデトックス専門サロン。',
+      'ボディもフェイスも、私に合わせて整える\n浜松で17年、延べ10,000人以上が実感した\n東洋学デトックスサロン',
     ctaText: '無料診断へ進む',
-    ctaLink: '#diagnostic',
+    ctaLink: 'https://makisalon.vercel.app/#diagnostic',
     backgroundImage: '/images/hero-main.jpg',
     backgroundImageMobile: '/images/salon-header.jpg',
+  },
+
+  booking: {
+    url: 'https://tol-app.jp/s/detxsalon-maki',
+    ctaText: '24時間予約ページ',
+    ctaTextLong: '24時間予約ページへ',
   },
 
   about: {
@@ -77,7 +83,7 @@ export const salonContent = {
   instagram: {
     url: 'https://www.instagram.com/aisare_salon?igsh=cDlhdTVmdWFicjN0',
     detoxUrl: 'https://www.instagram.com/detxsalon_maki?igsh=MXVqdGdiajY1bjR1MQ%3D%3D&utm_source=qr',
-    qrImage: '/qr/instagram.png',
+    qrImage: '/qr/instagram QR.png',
     images: ['/images/insta1.png', '/images/insta2.png', '/images/insta3.png'],
   },
 

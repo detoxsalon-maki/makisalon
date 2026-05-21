@@ -18,7 +18,7 @@ export const companyInfo = {
     full: '静岡県浜松市中央区上島5-4-48 美容室SOLO 2F',
   },
   phone: '053-472-3683',
-  businessHours: '月～土 AM 9:00 〜 PM 5:00',
+  businessHours: '9:30〜16:00',
   closedDay: '日曜',
   parking: 'あり・3台',
   googleMapsEmbedUrl:
@@ -26,6 +26,6 @@ export const companyInfo = {
   instagram: {
     url: 'https://www.instagram.com/aisare_salon?igsh=cDlhdTVmdWFicjN0',
     handle: '@aisare_salon',
-    qrImage: '/qr/instagram.png',
+    qrImage: '/qr/instagram QR.png',
   },
 } as const;

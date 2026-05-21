@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { CalendarCheck } from 'lucide-react';
 import { companyInfo } from '../../config/company';
 import { salonContent } from '../../config/salon-content';
 import { assetPath } from '../../utils/assetPath';
@@ -22,6 +23,15 @@ const Footer = () => {
                             極上のハンドケアと最新フェイシャル技術で<br />
                             真の美しさと健康を引き出すデトックスサロン。
                         </p>
+                        <a
+                            href={salonContent.booking.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center gap-2 bg-gold-600 hover:bg-gold-500 text-white px-5 py-3 rounded-full text-xs font-medium tracking-wider transition-colors shadow-lg shadow-gold-900/20"
+                        >
+                            <CalendarCheck size={14} />
+                            {salonContent.booking.ctaText}
+                        </a>
                     </div>
 
                     <div>

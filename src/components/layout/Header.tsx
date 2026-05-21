@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, Search, MessageCircle } from 'lucide-react';
+import { CalendarCheck, Menu, X, Search } from 'lucide-react';
 import { salonContent } from '../../config/salon-content';
 import { assetPath } from '../../utils/assetPath';
 
@@ -106,13 +106,13 @@ const Header = () => {
                         無料診断
                     </a>
                     <a
-                        href={salonContent.line.url}
+                        href={salonContent.booking.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 bg-[#06C755] hover:bg-[#05b34c] text-white px-4 py-2 rounded-full transition-colors text-xs font-medium tracking-wider shadow-sm shadow-[#06C755]/20"
+                        className="flex items-center gap-1.5 bg-gold-600 hover:bg-gold-500 text-white px-4 py-2 rounded-full transition-colors text-xs font-medium tracking-wider shadow-sm shadow-gold-700/20"
                     >
-                        <MessageCircle size={13} />
-                        ご予約・LINE
+                        <CalendarCheck size={13} />
+                        {salonContent.booking.ctaText}
                     </a>
                 </nav>
 
@@ -158,13 +158,13 @@ const Header = () => {
                             無料診断はこちら
                         </a>
                         <a
-                            href={salonContent.line.url}
+                            href={salonContent.booking.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center justify-center gap-2 bg-[#06C755] text-white px-6 py-3 rounded-full font-medium tracking-wider text-xs"
+                            className="flex items-center justify-center gap-2 bg-gold-600 text-white px-6 py-3 rounded-full font-medium tracking-wider text-xs"
                         >
-                            <MessageCircle size={14} />
-                            ご予約・LINE登録
+                            <CalendarCheck size={14} />
+                            {salonContent.booking.ctaText}
                         </a>
                     </div>
                 </div>

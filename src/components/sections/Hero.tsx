@@ -79,12 +79,10 @@ const Hero = () => {
                         {hero.ctaText}
                     </a>
                     <a
-                        href={salonContent.line.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        href={salonContent.booking.url}
                         className="inline-flex items-center justify-center px-8 py-3.5 text-sm font-serif tracking-[0.12em] border-2 border-cream-100/40 text-cream-50 rounded-full hover:bg-cream-50/10 transition-colors duration-300"
                     >
-                        LINE予約
+                        {salonContent.booking.ctaTextLong}
                     </a>
                 </motion.div>
 
@@ -159,12 +157,10 @@ const Hero = () => {
                         {hero.ctaText}
                     </a>
                     <a
-                        href={salonContent.line.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        href={salonContent.booking.url}
                         className="inline-flex items-center justify-center px-10 py-4 text-sm font-serif tracking-[0.15em] border-2 border-cream-100/40 text-cream-50 rounded-full hover:bg-cream-50/10 transition-colors duration-300 backdrop-blur-sm"
                     >
-                        LINE予約
+                        {salonContent.booking.ctaTextLong}
                     </a>
                 </motion.div>
             </div>
