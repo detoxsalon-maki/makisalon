@@ -15,9 +15,9 @@ export const salonContent = {
   },
 
   hero: {
-    catchcopy: 'カラダの中から\nキレイになる',
+    catchcopy: '巡りを整え、\nため込まないカラダへ',
     subcopy:
-      '全メニュー100%ハンド施術。\n浜松で20年、延べ10,000人以上が実感した\nデトックス専門サロン。',
+      'ボディもフェイスも、私に合わせて整える\n浜松で17年、延べ10,000人以上が実感した\nデトックス専門サロン。',
     ctaText: '無料診断へ進む',
     ctaLink: '#diagnostic',
     backgroundImage: '/images/hero-main.jpg',

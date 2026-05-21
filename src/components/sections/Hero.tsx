@@ -62,7 +62,7 @@ const Hero = () => {
                     className="mt-6 inline-flex items-center gap-3 bg-gradient-to-r from-gold-800/90 to-gold-600/90 text-cream-50 px-5 py-2.5 rounded-full shadow-xl shadow-gold-900/30 backdrop-blur-sm border border-gold-500/20"
                 >
                     <Crown size={16} className="text-gold-300" />
-                    <span className="text-[0.6rem] font-serif tracking-[0.12em]">サロン経営20年以上 ｜ 延べ10,000人以上</span>
+                    <span className="text-[0.6rem] font-serif tracking-[0.12em]">サロン経営17年以上 ｜ 延べ10,000人以上</span>
                 </motion.div>
 
                 {/* ── CTA ── */}
@@ -142,7 +142,7 @@ const Hero = () => {
                     className="mt-8 inline-flex items-center gap-3 bg-gradient-to-r from-gold-800/90 to-gold-600/90 text-cream-50 px-6 py-3 rounded-full shadow-xl shadow-gold-900/30 backdrop-blur-sm border border-gold-500/20"
                 >
                     <Crown size={16} className="text-gold-300" />
-                    <span className="text-xs font-serif tracking-[0.15em]">サロン経営20年以上 ｜ 延べ10,000人以上</span>
+                    <span className="text-xs font-serif tracking-[0.15em]">サロン経営17年以上 ｜ 延べ10,000人以上</span>
                 </motion.div>
 
                 {/* ── CTA（PC） ── */}
@@ -177,7 +177,7 @@ const Hero = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 2 }}
-                className="hidden md:flex absolute bottom-10 left-1/2 transform -translate-x-1/2 flex-col items-center z-20"
+                className="hidden"
             >
                 <span className="text-cream-100/60 text-xs tracking-[0.3em] mb-2 font-display uppercase">Scroll</span>
                 <div className="w-[1px] h-16 bg-cream-100/20 relative overflow-hidden">
