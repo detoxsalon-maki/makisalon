@@ -4,22 +4,7 @@ import Services from '../components/sections/Services';
 import InstagramFeed from '../components/sections/InstagramFeed';
 import Diagnostic from '../components/sections/Diagnostic';
 import Company from '../components/sections/Company';
-import MangaViewer from '../components/common/MangaViewer';
-import { salonMangaPanels } from '../config/manga-salon';
 import { assetPath } from '../utils/assetPath';
-
-/**
- * マンガを「scene」フィールドでセグメント分割
- * Hero後 = 導入(1-3)  /  About後 = 出会い(4-6)  /  Services後 = 転換(7-9)
- * Instagram後 = 確信(10-11)  /  Diagnostic後 = 結び(12-13)
- */
-const mangaSegments = {
-  intro:   salonMangaPanels.filter((p) => p.scene === '導入'),    // 1-3
-  meeting: salonMangaPanels.filter((p) => p.scene === '出会い'),  // 4-6
-  turning: salonMangaPanels.filter((p) => p.scene === '転換'),    // 7-9
-  proof:   salonMangaPanels.filter((p) => p.scene === '確信'),    // 10-11
-  closing: salonMangaPanels.filter((p) => p.scene === '結び'),    // 12-13
-};
 
 const Home = () => {
     return (
