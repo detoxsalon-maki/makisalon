@@ -59,7 +59,7 @@ const Hero = () => {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8, delay: 0.7 }}
-                    className="mt-6 inline-flex items-center gap-3 bg-cream-50 text-charcoal-900 px-5 py-2.5 rounded-full ring-2 ring-charcoal-800 ring-offset-1 ring-offset-gold-500/40 shadow-xl shadow-gold-700/40 font-medium"
+                    className="mt-6 inline-flex items-center gap-3 bg-cream-50 text-charcoal-900 px-5 py-2.5 rounded-full shadow-2xl shadow-gold-700/50 font-medium"
                 >
                     <Crown size={16} className="text-gold-600" />
                     <span className="text-[0.6rem] font-serif tracking-[0.12em]">サロン経営17年以上 ｜ 延べ10,000人以上</span>
@@ -74,7 +74,7 @@ const Hero = () => {
                 >
                     <a
                         href={hero.ctaLink}
-                        className="inline-flex items-center justify-center w-full max-w-[280px] px-8 py-3.5 text-sm font-serif tracking-[0.12em] bg-cream-50 text-charcoal-900 rounded-full hover:bg-cream-100 transition-colors duration-300 ring-2 ring-charcoal-800 ring-offset-1 ring-offset-gold-500/40 shadow-xl shadow-gold-700/40 font-medium"
+                        className="inline-flex items-center justify-center w-full max-w-[280px] px-8 py-3.5 text-sm font-serif tracking-[0.12em] bg-cream-50 text-charcoal-900 rounded-full hover:bg-cream-100 transition-colors duration-300 shadow-2xl shadow-gold-700/50 font-medium"
                     >
                         {hero.ctaText}
                     </a>
@@ -82,13 +82,13 @@ const Hero = () => {
                         href="https://tol-app.jp/s/detxsalon-maki?utm_source=lp&utm_medium=button&utm_campaign=service_list&utm_content=hero_center"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center w-full max-w-[280px] px-8 py-3.5 text-sm font-serif tracking-[0.12em] bg-cream-50 text-charcoal-900 rounded-full ring-[3px] ring-charcoal-900 ring-offset-2 ring-offset-gold-500/60 shadow-xl shadow-gold-700/40 animate-pulse-glow font-semibold"
+                        className="inline-flex items-center justify-center w-full max-w-[280px] px-8 py-3.5 text-sm font-serif tracking-[0.12em] bg-cream-50 text-charcoal-900 rounded-full shadow-2xl shadow-gold-700/60 animate-pulse-glow font-semibold"
                     >
                         サービス一覧
                     </a>
                     <a
                         href={salonContent.booking.url}
-                        className="inline-flex items-center justify-center w-full max-w-[280px] px-8 py-3.5 text-sm font-serif tracking-[0.12em] bg-cream-50 text-charcoal-900 rounded-full hover:bg-cream-100 transition-colors duration-300 ring-2 ring-charcoal-800 ring-offset-1 ring-offset-gold-500/40 shadow-xl shadow-gold-700/40 font-medium"
+                        className="inline-flex items-center justify-center w-full max-w-[280px] px-8 py-3.5 text-sm font-serif tracking-[0.12em] bg-cream-50 text-charcoal-900 rounded-full hover:bg-cream-100 transition-colors duration-300 shadow-2xl shadow-gold-700/50 font-medium"
                     >
                         {salonContent.booking.ctaTextLong}
                     </a>
@@ -145,7 +145,7 @@ const Hero = () => {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8, delay: 0.7 }}
-                    className="mt-8 inline-flex items-center gap-3 bg-cream-50 text-charcoal-900 px-6 py-3 rounded-full ring-2 ring-charcoal-800 ring-offset-1 ring-offset-gold-500/40 shadow-xl shadow-gold-700/40 font-medium"
+                    className="mt-8 inline-flex items-center gap-3 bg-cream-50 text-charcoal-900 px-6 py-3 rounded-full shadow-2xl shadow-gold-700/50 font-medium"
                 >
                     <Crown size={16} className="text-gold-600" />
                     <span className="text-xs font-serif tracking-[0.15em]">サロン経営17年以上 ｜ 延べ10,000人以上</span>
@@ -160,7 +160,7 @@ const Hero = () => {
                 >
                     <a
                         href={hero.ctaLink}
-                        className="inline-flex items-center justify-center px-10 py-4 text-sm font-serif tracking-[0.15em] bg-cream-50 text-charcoal-900 rounded-full hover:bg-cream-100 transition-colors duration-300 ring-2 ring-charcoal-800 ring-offset-1 ring-offset-gold-500/40 shadow-xl shadow-gold-700/40 font-medium"
+                        className="inline-flex items-center justify-center px-10 py-4 text-sm font-serif tracking-[0.15em] bg-cream-50 text-charcoal-900 rounded-full hover:bg-cream-100 transition-colors duration-300 shadow-2xl shadow-gold-700/50 font-medium"
                     >
                         {hero.ctaText}
                     </a>
@@ -168,13 +168,13 @@ const Hero = () => {
                         href="https://tol-app.jp/s/detxsalon-maki?utm_source=lp&utm_medium=button&utm_campaign=service_list&utm_content=hero_center"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center px-10 py-4 text-sm font-serif tracking-[0.15em] bg-cream-50 text-charcoal-900 rounded-full ring-[3px] ring-charcoal-900 ring-offset-2 ring-offset-gold-500/60 shadow-xl shadow-gold-700/40 animate-pulse-glow font-semibold"
+                        className="inline-flex items-center justify-center px-10 py-4 text-sm font-serif tracking-[0.15em] bg-cream-50 text-charcoal-900 rounded-full shadow-2xl shadow-gold-700/60 animate-pulse-glow font-semibold"
                     >
                         サービス一覧
                     </a>
                     <a
                         href={salonContent.booking.url}
-                        className="inline-flex items-center justify-center px-10 py-4 text-sm font-serif tracking-[0.15em] bg-cream-50 text-charcoal-900 rounded-full hover:bg-cream-100 transition-colors duration-300 ring-2 ring-charcoal-800 ring-offset-1 ring-offset-gold-500/40 shadow-xl shadow-gold-700/40 font-medium"
+                        className="inline-flex items-center justify-center px-10 py-4 text-sm font-serif tracking-[0.15em] bg-cream-50 text-charcoal-900 rounded-full hover:bg-cream-100 transition-colors duration-300 shadow-2xl shadow-gold-700/50 font-medium"
                     >
                         {salonContent.booking.ctaTextLong}
                     </a>
