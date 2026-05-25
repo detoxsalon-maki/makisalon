@@ -41,8 +41,8 @@ export const salonContent = {
     highlight:
       '「排毒は、キレイになる前の深呼吸」\n無理なく、心地よく、今のあなたに合わせて整えます。',
     images: {
-      main: '/images/about1.jpg',
-      sub: '/images/about2.jpg',
+      main: '/images/about_左_salon.jpg',
+      sub: '/images/about_右_salon.jpg',
     },
   },
 
@@ -68,8 +68,7 @@ export const salonContent = {
       title: 'フットケア・足つぼ',
       description:
         '東洋医術の粋を集めた足つぼ・フットケア。第二の心臓と呼ばれる足裏から全身の巡りを整え、深いリラクゼーションへ導きます。',
-      image:
-        'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&q=80&w=800',
+      image: '/images/service_foot_salon.jpg',
     },
   ],
 

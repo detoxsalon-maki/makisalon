@@ -38,7 +38,12 @@ const Services = () => {
                             transition={{ duration: 0.8, delay: index * 0.2 }}
                             className="group cursor-pointer"
                         >
-                            <div className="relative aspect-[3/4] overflow-hidden rounded-sm mb-6 border border-charcoal-600/30">
+                            <a
+                                href="https://tol-app.jp/s/detxsalon-maki"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="block relative aspect-[3/4] overflow-hidden rounded-sm mb-6 border border-charcoal-600/30"
+                            >
                                 <div className="absolute inset-0 bg-charcoal-900/25 group-hover:bg-charcoal-900/10 transition-colors duration-500 z-10"></div>
                                 <img
                                     src={service.image}
@@ -50,7 +55,7 @@ const Services = () => {
                                         {service.category}
                                     </span>
                                 </div>
-                            </div>
+                            </a>
                             <h4 className="text-lg font-serif text-cream-50 mb-3 tracking-widest group-hover:text-gold-400 transition-colors">
                                 {service.title}
                             </h4>

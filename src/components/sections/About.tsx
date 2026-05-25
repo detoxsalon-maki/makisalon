@@ -18,9 +18,9 @@ const About = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 1, delay: 0.2 }}
-                        className="w-full lg:w-1/2 relative min-h-[500px]"
+                        className="w-full lg:w-1/2 grid grid-cols-2 gap-5"
                     >
-                        <div className="absolute top-0 right-0 w-4/5 h-4/5 rounded-sm overflow-hidden shadow-2xl border border-gold-300/40 z-10">
+                        <div className="relative h-[500px] rounded-sm overflow-hidden shadow-2xl border border-gold-300/40">
                             <img
                                 src={`${import.meta.env.BASE_URL}${about.images.main.replace(/^\//, '')}`}
                                 alt="代表 小倉真樹"
@@ -28,7 +28,7 @@ const About = () => {
                             />
                             <div className="absolute inset-0 bg-gold-50/10 mix-blend-overlay"></div>
                         </div>
-                        <div className="absolute bottom-0 left-0 w-2/3 h-2/3 rounded-sm overflow-hidden shadow-2xl border border-gold-200/30 z-20 transform -translate-y-8 translate-x-8">
+                        <div className="relative h-[500px] rounded-sm overflow-hidden shadow-2xl border border-gold-200/30">
                             <img
                                 src={`${import.meta.env.BASE_URL}${about.images.sub.replace(/^\//, '')}`}
                                 alt="施術風景"
