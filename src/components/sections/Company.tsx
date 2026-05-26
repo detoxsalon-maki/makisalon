@@ -13,9 +13,9 @@ const Company = () => {
     ];
 
     return (
-        <section id="company" className="py-24 bg-cream-50 relative">
+        <section id="company" className="py-16 md:py-24 bg-cream-50 relative">
             <div className="container mx-auto px-6 lg:px-12 relative z-10">
-                <div className="flex flex-col lg:flex-row gap-16">
+                <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -45,7 +45,7 @@ const Company = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 1, delay: 0.2 }}
-                        className="w-full lg:w-1/2 min-h-[400px]"
+                        className="w-full lg:w-1/2 h-[260px] md:h-auto md:min-h-[400px]"
                     >
                         <div className="w-full h-full rounded-sm overflow-hidden border border-gold-200 shadow-2xl relative">
                             <div className="absolute inset-0 bg-gold-50/10 mix-blend-overlay pointer-events-none z-10"></div>
@@ -53,7 +53,7 @@ const Company = () => {
                                 src={companyInfo.googleMapsEmbedUrl}
                                 width="100%"
                                 height="100%"
-                                style={{ border: 0, minHeight: '400px', filter: 'grayscale(20%) sepia(10%)' }}
+                                style={{ border: 0, filter: 'grayscale(20%) sepia(10%)' }}
                                 allowFullScreen={false}
                                 loading="lazy"
                                 referrerPolicy="no-referrer-when-downgrade"
