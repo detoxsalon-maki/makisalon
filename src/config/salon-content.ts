@@ -83,7 +83,12 @@ export const salonContent = {
     url: 'https://www.instagram.com/aisare_salon?igsh=cDlhdTVmdWFicjN0',
     detoxUrl: 'https://www.instagram.com/detxsalon_maki?igsh=MXVqdGdiajY1bjR1MQ%3D%3D&utm_source=qr',
     qrImage: '/qr/instagram QR.png',
-    images: ['/images/insta1.png', '/images/insta2.png', '/images/insta3.png'],
+    images: [
+      '/images/Instagram Gallery_1.png',
+      '/images/Instagram Gallery_2.jpg',
+      '/images/Instagram Gallery_3.jpg',
+      '/images/Instagram Gallery_4.jpg',
+    ],
   },
 
   diagnostic: {
