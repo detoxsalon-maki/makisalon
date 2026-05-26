@@ -3,11 +3,11 @@ import SectionHeading from '../common/SectionHeading';
 import { companyInfo } from '../../config/company';
 
 const Company = () => {
-    const rows = [
+    const rows: Array<{ label: string; value: string; highlight?: boolean; note?: string }> = [
         { label: '運営会社', value: companyInfo.name },
         { label: '代表者', value: companyInfo.representative },
         { label: '所在地', value: `${companyInfo.address.postalCode}\n${companyInfo.address.full}` },
-        { label: '電話番号', value: companyInfo.phone, highlight: true },
+        { label: '電話番号\n直通', value: `${companyInfo.phone}\n${companyInfo.directPhone}`, highlight: true, note: companyInfo.phoneNote },
         { label: '営業時間', value: companyInfo.businessHours },
         { label: '定休日', value: `${companyInfo.closedDay}（駐車場：${companyInfo.parking}）` },
     ];
@@ -28,9 +28,12 @@ const Company = () => {
                         <div className="space-y-6 text-charcoal-700 font-light tracking-wider text-sm md:text-base">
                             {rows.map((row, i) => (
                                 <div key={i} className={`grid grid-cols-12 ${i < rows.length - 1 ? 'border-b border-gold-200' : ''} pb-4`}>
-                                    <div className="col-span-4 text-gold-700 font-medium">{row.label}</div>
+                                    <div className="col-span-4 text-gold-700 font-medium whitespace-pre-line leading-relaxed">{row.label}</div>
                                     <div className={`col-span-8 whitespace-pre-line ${row.highlight ? 'text-charcoal-800 text-lg' : ''}`}>
                                         {row.value}
+                                        {row.note && (
+                                            <p className="text-sm text-charcoal-500 mt-2 leading-relaxed font-normal">{row.note}</p>
+                                        )}
                                     </div>
                                 </div>
                             ))}

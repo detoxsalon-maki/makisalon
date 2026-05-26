@@ -39,7 +39,8 @@ const Footer = () => {
                         <ul className="space-y-3 text-xs text-cream-300 font-light tracking-wider">
                             <li>{companyInfo.address.postalCode}</li>
                             <li>{companyInfo.address.full}</li>
-                            <li className="text-gold-400 pt-2 text-base">{companyInfo.phone}</li>
+                            <li className="text-gold-400 pt-2 text-base whitespace-pre-line leading-relaxed">{companyInfo.phoneDisplay}</li>
+                            <li className="text-cream-300/70 leading-relaxed">{companyInfo.phoneNote}</li>
                         </ul>
                     </div>
 
