@@ -13,6 +13,17 @@ const About = () => {
 
             <div className="container mx-auto px-6 lg:px-12 relative z-10">
                 <div className="flex flex-col lg:flex-row items-center gap-16">
+                    {/* モバイル専用: 見出しを画像の上に表示 */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 1 }}
+                        className="lg:hidden w-full"
+                    >
+                        <SectionHeading label={about.label} heading={about.heading} align="left" dark={false} />
+                    </motion.div>
+
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
@@ -45,7 +56,10 @@ const About = () => {
                         transition={{ duration: 1, delay: 0.2 }}
                         className="w-full lg:w-1/2"
                     >
-                        <SectionHeading label={about.label} heading={about.heading} align="left" dark={false} />
+                        {/* PC専用: 見出し（モバイルでは画像の上に既出のため非表示） */}
+                        <div className="hidden lg:block">
+                            <SectionHeading label={about.label} heading={about.heading} align="left" dark={false} />
+                        </div>
 
                         <div className="space-y-5 text-charcoal-700 font-light leading-relaxed tracking-wider text-sm md:text-base">
                             {about.paragraphs.map((p, i) => (
