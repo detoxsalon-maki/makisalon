@@ -73,7 +73,7 @@ export const salonContent = {
   ],
 
   line: {
-    url: 'https://lin.ee/hZjjsCT',
+    url: 'https://lin.ee/tedD1Yw',
     deepLink: 'https://line.me/R/ti/p/@335pckre?ts=01031548&oat_content=url',
     qrImage: '/qr/line-salon.png',
     ctaText: 'LINE登録して結果の続きを見る',
