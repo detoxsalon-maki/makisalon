@@ -36,7 +36,11 @@ dist-ssr
 !public/**/*.png
 *.mjs
 !vite.config.ts
+!scripts/build-handoff-pptx.mjs
 competitors/
 unacceptable UI/
 *.cjs
 !eslint.config.js
+
+# Dev server logs
+*.err
