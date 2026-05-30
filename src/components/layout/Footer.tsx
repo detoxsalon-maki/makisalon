@@ -84,9 +84,9 @@ const Footer = () => {
                                     <QRBlock
                                         qrImage={academyContent.line.qrImage}
                                         label="公式LINE"
-                                        linkUrl=""
+                                        linkUrl={academyContent.line.url}
+                                        linkText="友だち追加"
                                         size="sm"
-                                        noLink
                                     />
                                     <QRBlock
                                         qrImage={academyContent.instagram.qrImage}
