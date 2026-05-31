@@ -9,6 +9,8 @@ const Diagnostic = () => {
     const [answers, setAnswers] = useState<string[]>([]);
     const [isFinished, setIsFinished] = useState(false);
 
+    const adviceText = diagnostic.advice[answers[0] as keyof typeof diagnostic.advice];
+
     const handleAnswer = (answer: string) => {
         setAnswers([...answers, answer]);
         if (currentQuestion < diagnostic.questions.length - 1) {
@@ -19,7 +21,7 @@ const Diagnostic = () => {
     };
 
     return (
-        <section id="diagnostic" className="py-28 bg-charcoal-800 relative overflow-hidden">
+        <section id="diagnostic" className="scroll-mt-24 py-28 bg-charcoal-800 relative overflow-hidden">
             {/* 背景テクスチャ */}
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-mosaic.png')] opacity-[0.04]"></div>
             <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-gold-500/5 rounded-full blur-[120px]"></div>
@@ -85,22 +87,25 @@ const Diagnostic = () => {
                         <h3 className="text-2xl font-serif text-gold-700 mb-6 tracking-widest">診断完了</h3>
                         <p className="text-charcoal-700 font-light tracking-wider mb-8 leading-relaxed text-sm">
                             あなたの回答を分析しました。<br />
-                            <span className="text-gold-700 font-medium">「{answers[0]}」</span>にお悩みのあなたには、<br />
-                            独自の<span className="blur-sm bg-gold-100 select-none">極秘デトックスメソッド</span>が最適です。
+                            <span className="text-gold-700 font-medium">「{answers[0]}」</span>が気になるあなたへ、<br />
+                            サロンからの簡易アドバイスをお届けします。
                         </p>
 
-                        <div className="bg-cream-100 border border-gold-200 p-8 rounded-sm mb-10 relative overflow-hidden">
-                            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-cream-100/90 z-10"></div>
-                            <h4 className="text-gold-700 font-serif mb-4 tracking-widest relative z-0 text-sm">診断結果レポート</h4>
-                            <p className="text-charcoal-700 font-light text-xs tracking-wider leading-loose relative z-0">
-                                あなたの現在の状態は、日々のストレスや姿勢の崩れにより、本来持つべき巡りの力が低下しています。<br />
-                                今すぐ始めるべき3つの特別なケアとは...
+                        <div className="bg-cream-100 border border-gold-200 p-8 rounded-sm mb-10 text-left">
+                            <h4 className="text-gold-700 font-serif mb-4 tracking-widest text-sm text-center">診断結果レポート</h4>
+                            <p className="text-charcoal-700 font-light text-xs md:text-sm tracking-wider leading-loose">
+                                {adviceText}
                             </p>
-                            <div className="absolute bottom-6 left-0 right-0 z-20 flex justify-center">
-                                <span className="text-charcoal-800 text-xs tracking-widest bg-white/90 px-4 py-2 rounded-full border border-gold-200 font-medium">
-                                    続きは公式LINEで公開中（無料）
-                                </span>
-                            </div>
+                            <p className="text-charcoal-600 font-light text-xs tracking-wider leading-loose mt-5 pt-4 border-t border-gold-200/60">
+                                {diagnostic.adviceClosing}
+                            </p>
+                        </div>
+
+                        <div className="bg-gradient-to-b from-gold-50 to-cream-100 border border-gold-300/60 rounded-sm p-6 mb-8 shadow-sm">
+                            <p className="text-gold-700 font-serif tracking-[0.2em] text-sm mb-3">🎁 {diagnostic.offer.label}</p>
+                            <p className="text-charcoal-700 font-light text-xs md:text-sm tracking-wider leading-loose">
+                                {diagnostic.offer.body}
+                            </p>
                         </div>
 
                         <CTAButton
@@ -109,7 +114,7 @@ const Diagnostic = () => {
                             variant="line"
                             external={true}
                         />
-                        <p className="text-xs text-charcoal-600 mt-4 tracking-widest font-light">※登録後、すぐに結果が届きます</p>
+                        <p className="text-xs text-charcoal-600 mt-4 tracking-widest font-light">※ご相談後、無料でアドバイス致します</p>
                     </motion.div>
                 )}
             </div>

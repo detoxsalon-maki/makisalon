@@ -4,7 +4,7 @@ import { salonContent } from '../../config/salon-content';
 
 const Services = () => {
     return (
-        <section id="service" className="py-28 bg-charcoal-800 relative overflow-hidden">
+        <section id="service" className="scroll-mt-24 py-28 bg-charcoal-800 relative overflow-hidden">
             {/* 背景テクスチャ */}
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-mosaic.png')] opacity-[0.04]"></div>
             <div className="absolute top-0 left-1/4 w-96 h-96 bg-gold-500/5 rounded-full blur-[150px]"></div>

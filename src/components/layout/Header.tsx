@@ -58,6 +58,33 @@ const Header = () => {
         }
     };
 
+    // サロンLP内のハッシュリンク（COMPANY / 無料診断 等）を1クリックで確実にスムーズスクロールさせる
+    const handleSalonHashNav = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+        const hashIndex = path.indexOf('#');
+        if (hashIndex === -1) return;            // ハッシュ無し（HOME等）はネイティブ遷移
+        if (location.pathname !== '/') return;   // ホーム以外からは通常遷移（遷移後 ScrollToTop が処理）
+        const id = path.slice(hashIndex + 1);
+        const el = document.getElementById(id);
+        if (!el) return;
+        e.preventDefault();
+        window.history.replaceState(null, '', path);
+        setIsMobileMenuOpen(false);
+        // 遅延ロード画像（マンガ等）でページ高が伸び、スムーズスクロールが目標手前で止まるため、
+        // まずスムーズで寄せ、その後 instant で複数回 再ターゲットし #id へ確実に収束させる
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // 遅延ロード画像でページ高が伸び続けるため、目標位置が安定するまで（最大4秒）再ターゲットし続ける
+        let last = -1, stable = 0, elapsed = 0;
+        const settle = () => {
+            el.scrollIntoView({ behavior: 'auto', block: 'start' });
+            const top = Math.round(el.getBoundingClientRect().top);
+            stable = Math.abs(top - last) <= 2 ? stable + 1 : 0;
+            last = top;
+            elapsed += 150;
+            if (stable < 3 && elapsed < 4000) window.setTimeout(settle, 150);
+        };
+        window.setTimeout(settle, 500);
+    };
+
     /* ─── Hero上（未スクロール）: 透明背景＆白文字 / スクロール後: クリーム背景 ─── */
     /* Academy LP は明るいクリームHeroオーバーレイのため常時黒文字+クリーム背景 */
     const headerBg = isScrolled
@@ -106,6 +133,7 @@ const Header = () => {
                             key={link.name}
                             href={link.path}
                             {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                            onClick={!isAcademy ? (e) => handleSalonHashNav(e, link.path) : undefined}
                             className={`${navTextColor} ${navHoverColor} transition-colors text-xs tracking-[0.15em] font-light`}
                         >
                             {link.name}
@@ -123,6 +151,7 @@ const Header = () => {
                     {!isAcademy && (
                         <a
                             href={`${base}/#diagnostic`}
+                            onClick={(e) => handleSalonHashNav(e, `${base}/#diagnostic`)}
                             className={`flex items-center gap-1.5 border px-4 py-2 rounded-full transition-all text-xs font-medium tracking-wider ${isScrolled
                                 ? 'border-gold-400 text-gold-700 hover:bg-gold-500 hover:text-white'
                                 : 'border-cream-100/40 text-cream-50 hover:bg-cream-50/10'
@@ -178,6 +207,7 @@ const Header = () => {
                             key={link.name}
                             href={link.path}
                             {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                            onClick={!isAcademy ? (e) => handleSalonHashNav(e, link.path) : undefined}
                             className="text-charcoal-700 hover:text-gold-600 transition-colors text-xs tracking-[0.2em] py-2 border-b border-gold-100"
                         >
                             {link.name}
@@ -195,6 +225,7 @@ const Header = () => {
                         {!isAcademy && (
                             <a
                                 href={`${base}/#diagnostic`}
+                                onClick={(e) => handleSalonHashNav(e, `${base}/#diagnostic`)}
                                 className="flex items-center justify-center gap-2 border border-gold-400 text-gold-700 px-6 py-3 rounded-full font-medium tracking-wider text-xs"
                             >
                                 <Search size={14} />

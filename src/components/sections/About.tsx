@@ -6,7 +6,7 @@ const About = () => {
     const { about } = salonContent;
 
     return (
-        <section id="about" className="py-24 bg-cream-50 relative overflow-hidden">
+        <section id="about" className="scroll-mt-24 py-24 bg-cream-50 relative overflow-hidden">
             {/* 装飾用背景要素 */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-ice-200/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-gold-100/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>

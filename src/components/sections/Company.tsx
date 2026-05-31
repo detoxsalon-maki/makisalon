@@ -13,7 +13,7 @@ const Company = () => {
     ];
 
     return (
-        <section id="company" className="py-16 md:py-24 bg-cream-50 relative">
+        <section id="company" className="scroll-mt-24 py-16 md:py-24 bg-cream-50 relative">
             <div className="container mx-auto px-6 lg:px-12 relative z-10">
                 <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
                     <motion.div
