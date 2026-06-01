@@ -80,7 +80,7 @@ export const salonContent = {
   },
 
   instagram: {
-    url: 'https://www.instagram.com/aisare_salon?igsh=cDlhdTVmdWFicjN0',
+    url: 'https://www.instagram.com/detxsalon_maki/',
     detoxUrl: 'https://www.instagram.com/detxsalon_maki?igsh=MXVqdGdiajY1bjR1MQ%3D%3D&utm_source=qr',
     qrImage: '/qr/instagram QR.png',
     images: [
